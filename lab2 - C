@@ -1,0 +1,212 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
+#include <time.h>
+#include <stdbool.h>
+
+struct math {
+    int math_marks;
+    int math_visit;
+    char *math_name;
+};
+
+struct history {
+    int history_marks;
+    int history_visit;
+    char *history_name;
+};
+
+struct physics {
+    int physics_marks;
+    int physics_visit;
+    char *physics_name;
+};
+
+struct economics {
+    int economics_marks;
+    int economics_visit;
+    char *economics_name;
+};
+
+struct management {
+    int management_marks;
+    int management_visit;
+    char *management_name;
+};
+
+struct at {
+    struct math math_get;
+    struct history history_get;
+    struct physics physics_get;
+    struct economics economics_get;
+    struct management management_get;
+};
+
+void init(struct at *p){
+    p->math_get.math_marks = 0;
+    p->math_get.math_visit = 0;
+    p->math_get.math_name = (char*)calloc(30, (sizeof(char)));
+
+    p->history_get.history_marks = 0;
+    p->history_get.history_visit = 0;
+    p->history_get.history_name = (char*)calloc(30, (sizeof(char)));
+
+    p->physics_get.physics_marks = 0;
+    p->physics_get.physics_visit = 0;
+    p->physics_get.physics_name = (char*)calloc(30, (sizeof(char)));
+
+    p->economics_get.economics_marks = 0;
+    p->economics_get.economics_visit = 0;
+    p->economics_get.economics_name = (char*)calloc(30, (sizeof(char)));
+
+    p->management_get.management_marks = 0;
+    p->management_get.management_visit = 0;
+    p->management_get.management_name = (char*)calloc(30, (sizeof(char)));
+}
+
+void input(struct at *p){
+    printf("*Математика*\n\nВведите имя преподавателя:");
+    scanf("%s", p -> math_get.math_name);
+    printf("\nВведите общий балл:");
+    scanf("%d", &p->math_get.math_marks);
+    printf("\nВведите посещаемость:");
+    scanf("%d", &p->math_get.math_visit);
+
+    printf("*История*\n\nВведите имя преподавателя:");
+    scanf("%s", p->history_get.history_name);
+    printf("\nВведите общий балл:");
+    scanf("%d", &p->history_get.history_marks);
+    printf("\nВведите посещаемость:");
+    scanf("%d", &p->history_get.history_visit);
+
+    printf("*ФИЗИКА*\n\nВведите имя преподавателя:");
+    scanf("%s", p->physics_get.physics_name);
+    printf("\nВведите общий балл:");
+    scanf("%d", &p->physics_get.physics_marks);
+    printf("\nВведите посещаемость:");
+    scanf("%d", &p->physics_get.physics_visit);
+
+    printf("*ЭКОНОМИКА*\n\nВведите имя преподавателя:");
+    scanf("%s", p->economics_get.economics_name);
+    printf("\nВведите общий балл:");
+    scanf("%d", &p->economics_get.economics_marks);
+    printf("\nВведите посещаемость:");
+    scanf("%d", &p->economics_get.economics_visit);
+
+    printf("*МЕНЕДЖМЕНТ*\n\nВведите имя преподавателя:");
+    scanf("%s", p->management_get.management_name);
+    printf("\nВведите общий балл:");
+    scanf("%d", &p->management_get.management_marks);
+    printf("\nВведите посещаемость:");
+    scanf("%d", &p->management_get.management_visit);
+}
+
+void proverka(struct at *p) {
+    if (p->math_get.math_marks < 25) {
+        printf("У вас не аттестована математика! Рекомендуем подтянуть и исправить сведения!");
+        int a;
+        printf("Вы будете менять сведения по предмету? \n 1-да, 0-нет\n");
+        scanf("%d", &a);
+        if (a) {
+            printf("*Математика*\n\nВведите имя преподавателя:");
+            scanf("%s", p->math_get.math_name);
+            printf("\nВведите общий балл:");
+            scanf("%d", &p->math_get.math_marks);
+            printf("\nВведите посещаемость:");
+            scanf("%d", &p->math_get.math_visit);
+        }
+    }
+
+    if (p->history_get.history_marks < 25) {
+        printf("У вас не аттестована история! Рекомендуем подтянуть и исправить сведения!");
+        int a;
+        printf("Вы будете менять сведения по предмету? \n 1-да, 0-нет\n");
+        scanf("%d", &a);
+        if (a) {
+            printf("*История*\n\nВведите имя преподавателя:");
+            scanf("%s", p->history_get.history_name);
+            printf("\nВведите общий балл:");
+            scanf("%d", &p->history_get.history_marks);
+            printf("\nВведите посещаемость:");
+            scanf("%d", &p->history_get.history_visit);
+        }
+    }
+
+    if (p->physics_get.physics_marks < 25) {
+        printf("У вас не аттестована физика! Рекомендуем подтянуть и исправить сведения!");
+        int a;
+        printf("Вы будете менять сведения по предмету? \n 1-да, 0-нет\n");
+        scanf("%d", &a);
+        if (a) {
+            printf("*ФИЗИКА*\n\nВведите имя преподавателя:");
+            scanf("%s", p->physics_get.physics_name);
+            printf("\nВведите общий балл:");
+            scanf("%d", &p->physics_get.physics_marks);
+            printf("\nВведите посещаемость:");
+            scanf("%d", &p->physics_get.physics_visit);
+        }
+    }
+
+    if (p->economics_get.economics_marks < 25) {
+        printf("У вас не аттестована экономика! Рекомендуем подтянуть и исправить сведения!");
+        int a;
+        printf("Вы будете менять сведения по предмету? \n 1-да, 0-нет\n");
+        scanf("%d", &a);
+        if (a) {
+            printf("*ЭКОНОМИКА*\n\nВведите имя преподавателя:");
+            scanf("%s", p->economics_get.economics_name);
+            printf("\nВведите общий балл:");
+            scanf("%d", &p->economics_get.economics_marks);
+            printf("\nВведите посещаемость:");
+            scanf("%d", &p->economics_get.economics_visit);
+        }
+    }
+
+    if (p->management_get.management_marks < 25) {
+        printf("У вас не аттестован менеджмент! Рекомендуем подтянуть и исправить сведения!");
+        int a;
+        printf("Вы будете менять сведения по предмету? \n 1-да, 0-нет\n");
+        scanf("%d", &a);
+        if (a) {
+            printf("*МЕНЕДЖМЕНТ*\n\nВведите имя преподавателя:");
+            scanf("%s", p->management_get.management_name);
+            printf("\nВведите общий балл:");
+            scanf("%d", &p->management_get.management_marks);
+            printf("\nВведите посещаемость:");
+            scanf("%d", &p->management_get.management_visit);
+        }
+    }
+}
+
+
+
+void config(struct at *p) {
+    int avg;
+    puts("*ВАША АТТЕСТАЦИЯ*:");
+    if (p->math_get.math_marks)
+        printf("Математика - преподаватель %s;  общий балл - %d;  посещаемость - %d руб.\n", p->math_get.math_name, p->math_get.math_marks, p->math_get.math_visit);
+    if (p->history_get.history_marks)
+        printf("История - преподаватель %s;  общий балл - %d;  посещаемость - %d руб.\n", p->history_get.history_name, p->history_get.history_marks, p->history_get.history_visit);
+    if (p->physics_get.physics_marks)
+        printf("Физика - преподаватель %s;  общий балл - %d;  посещаемость - %d руб.\n", p->physics_get.physics_name, p->physics_get.physics_marks, p->physics_get.physics_visit);
+    if (p->economics_get.economics_marks)
+        printf("Экономика - преподаватель %s;  общий балл - %d;  посещаемость - %d руб.\n", p->economics_get.economics_name, p->economics_get.economics_marks, p->economics_get.economics_visit);
+    if (p->management_get.management_marks)
+        printf("Экономика - преподаватель %s;  общий балл - %d;  посещаемость - %d руб.\n", p->management_get.management_name, p->management_get.management_marks, p->management_get.management_visit);
+}
+
+void result(struct at *p){
+    int avg;
+    avg = (p->math_get.math_marks + p->history_get.history_marks + p-> physics_get.physics_marks + p->economics_get.economics_marks + p->management_get.management_marks)/5;
+    printf("Средний балл: %d\n", avg);
+}
+
+int main() {
+    SetConsoleOutputCP(CP_UTF8);
+    struct at cfg;
+    init(&cfg);
+    input(&cfg);
+    proverka(&cfg);
+    config(&cfg);
+    result(&cfg);
+}
